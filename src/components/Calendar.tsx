@@ -4,9 +4,8 @@ import { useEffect, useState } from "react";
 import getDaysInCurrentMonth from "@/utils/getDaysInCurrentMonth";
 import getDaysOfTheWeekNames from "@/utils/getDaysOfTheWeekNames";
 import { DayInMonth } from "@/app/interfaces/DayInMonth";
-import { alignMonthStart } from "@/utils/alignMonthStart";
-import CalendarDay from "./CalendarDay";
 import CalendarDaysNames from "./CalendarDaysNames";
+import CalendarDays from "./CalendarDays";
 
 export default function Calendar() {
   const [days, setDays] = useState<DayInMonth[]>([]);
@@ -23,12 +22,7 @@ export default function Calendar() {
   return (
     <>
       <CalendarDaysNames daysNames={daysNames} />
-      <ul className="grid grid-cols-7">
-        {alignMonthStart(days, daysNames)}
-        {days.map((day) => (
-          <CalendarDay key={day.number} day={day} />
-        ))}
-      </ul>
+      <CalendarDays daysNames={daysNames} days={days} />
     </>
   );
 }
