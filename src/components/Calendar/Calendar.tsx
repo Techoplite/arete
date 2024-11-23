@@ -1,10 +1,12 @@
-"use client"
+"use client";
 
 import { useEffect, useState } from "react";
 import getDaysInCurrentMonth from "@/utils/getDaysInCurrentMonth";
 
 export default function Calendar() {
-  const [days, setDays] = useState<{ name: string; number: number; year: number }[]>([]);
+  const [days, setDays] = useState<
+    { name: string; number: number; year: number }[]
+  >([]);
 
   useEffect(() => {
     // Fetch the days in the current month when the component mounts
@@ -13,14 +15,14 @@ export default function Calendar() {
   }, []);
 
   return (
-      <div className="h-screen">
-        {days.map((day) => (
-          <div key={day.number}>
-            <span>{day.name}</span>
-            <span>{day.number}</span>
-          </div>
-        ))}
-      </div>
+    <div className="grid grid-cols-7">
+      {days.map((day) => (
+        <div key={day.number} className='flex flex-col'>
+          <div className='self-center'>{day.number}</div>
+          <div className='rounded-full h-2 w-2 bg-red-500 self-center mt-2.5'/>
+          <div className='rounded-full h-2 w-2 bg-green-500 self-center mt-2.5'/>
+        </div>
+      ))}
+    </div>
   );
 }
-
