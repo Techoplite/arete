@@ -7,7 +7,7 @@ import getDaysOfTheWeekNames from "@/utils/getDaysOfTheWeekNames";
 export default function Calendar() {
   const [days, setDays] = useState<
     {
-      // name: string;
+      name: string;
       number: number;
       year: number;
     }[]
@@ -23,14 +23,34 @@ export default function Calendar() {
     setDaysNames(weekDaysNames);
   }, []);
 
+  const alignMonthStart = () => {
+    if (!days.length || !daysNames.length) return []; // Return empty if data is not ready
+
+    const firstDayName = days[0]?.name;
+    const indexOfDayName = daysNames.findIndex((item) => firstDayName === item);
+  
+    // If the first day is invalid or cannot be found, return an empty array
+    if (indexOfDayName === -1) return [];
+  
+    const spaces = [];
+    for (let i = 0; i < indexOfDayName; i++) {
+      spaces.push(<div key={`space-${i}`} />);
+    }
+  
+    console.log("spaces", spaces);
+    return spaces;
+  };
+
   return (
     <>
-      <div className='grid grid-cols-7 text-center mt-2.5'>
+      <div className="grid grid-cols-7 text-center mt-2.5">
         {daysNames.map((dayName) => (
           <div key={dayName}>{dayName}</div>
         ))}
       </div>
       <ul className="grid grid-cols-7">
+        {alignMonthStart()}
+
         {days.map((day) => (
           <li key={day.number} className="flex flex-col my-2">
             <div className="self-center">{day.number}</div>

@@ -1,5 +1,5 @@
 export default function getDaysInCurrentMonth(): {
-  // name: string;
+  name: string;
   number: number;
   year: number;
 }[] {
@@ -20,12 +20,12 @@ export default function getDaysInCurrentMonth(): {
     date <= lastDayOfMonth;
     date.setDate(date.getDate() + 1)
   ) {
-    // const dayName = date.toLocaleString('en-US', { weekday: 'short' }); // Get the day name (Mon, Tue, etc.)
+    const dayName = date.toLocaleString('en-US', { weekday: 'short' }); // Get the day name (Mon, Tue, etc.)
     const dayNumber = date.getDate(); // Get the numeric day (1, 2, 3, ..., 31)
 
     // Push the day object to the array
     daysInMonth.push({
-      // name: dayName,
+      name: dayName,
       number: dayNumber,
       year: currentYear,
     });
