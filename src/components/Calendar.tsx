@@ -5,6 +5,7 @@ import getDaysInCurrentMonth from "@/utils/getDaysInCurrentMonth";
 import getDaysOfTheWeekNames from "@/utils/getDaysOfTheWeekNames";
 import { DayInMonth } from "@/app/interfaces/DayInMonth";
 import { alignMonthStart } from "@/utils/alignMonthStart";
+import CalendarDay from "./CalendarDay";
 
 export default function Calendar() {
   const [days, setDays] = useState<DayInMonth[]>([]);
@@ -28,11 +29,7 @@ export default function Calendar() {
       <ul className="grid grid-cols-7">
         {alignMonthStart(days, daysNames)}
         {days.map((day) => (
-          <li key={day.number} className="flex flex-col my-2">
-            <div className="self-center">{day.number}</div>
-            <div className="rounded-full h-2 w-2 bg-red-500 self-center mt-2.5" />
-            <div className="rounded-full h-2 w-2 bg-green-500 self-center mt-2.5" />
-          </li>
+          <CalendarDay key={day.number} day={day}/>
         ))}
       </ul>
     </>
