@@ -1,8 +1,6 @@
-export default function getDaysInCurrentMonth(): {
-  name: string;
-  number: number;
-  year: number;
-}[] {
+import { DayInMonth } from "@/app/interfaces/DayInMonth";
+
+export default function getDaysInCurrentMonth():DayInMonth[] {
   const today = new Date();
   const currentYear = today.getFullYear();
   const currentMonth = today.getMonth(); // 0-based index (0 = January, 11 = December)

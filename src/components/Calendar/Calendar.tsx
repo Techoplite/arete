@@ -3,14 +3,11 @@
 import { useEffect, useState } from "react";
 import getDaysInCurrentMonth from "@/utils/getDaysInCurrentMonth";
 import getDaysOfTheWeekNames from "@/utils/getDaysOfTheWeekNames";
+import { DayInMonth } from "@/app/interfaces/DayInMonth";
 
 export default function Calendar() {
   const [days, setDays] = useState<
-    {
-      name: string;
-      number: number;
-      year: number;
-    }[]
+   DayInMonth[]
   >([]);
 
   const [daysNames, setDaysNames] = useState<string[]>([]);
