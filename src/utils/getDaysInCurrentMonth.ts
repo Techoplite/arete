@@ -34,6 +34,3 @@ export default function getDaysInCurrentMonth(): {
   return daysInMonth;
 }
 
-// Example usage:
-const days = getDaysInCurrentMonth();
-console.log(days);
