@@ -4,11 +4,10 @@ import { useEffect, useState } from "react";
 import getDaysInCurrentMonth from "@/utils/getDaysInCurrentMonth";
 import getDaysOfTheWeekNames from "@/utils/getDaysOfTheWeekNames";
 import { DayInMonth } from "@/app/interfaces/DayInMonth";
+import { alignMonthStart } from "@/utils/alignMonthStart";
 
 export default function Calendar() {
-  const [days, setDays] = useState<
-   DayInMonth[]
-  >([]);
+  const [days, setDays] = useState<DayInMonth[]>([]);
 
   const [daysNames, setDaysNames] = useState<string[]>([]);
 
@@ -20,23 +19,6 @@ export default function Calendar() {
     setDaysNames(weekDaysNames);
   }, []);
 
-  const alignMonthStart = () => {
-    if (!days.length || !daysNames.length) return []; // Return empty if data is not ready
-
-    const firstDayName = days[0]?.name;
-    const indexOfDayName = daysNames.findIndex((item) => firstDayName === item);
-
-    // If the first day is invalid or cannot be found, return an empty array
-    if (indexOfDayName === -1) return [];
-
-    const spaces = [];
-    for (let i = 0; i < indexOfDayName; i++) {
-      spaces.push(<div key={`space-${i}`} />);
-    }
-
-    return spaces;
-  };
-
   return (
     <>
       <div className="grid grid-cols-7 text-center mt-2.5">
@@ -45,8 +27,7 @@ export default function Calendar() {
         ))}
       </div>
       <ul className="grid grid-cols-7">
-        {alignMonthStart()}
-
+        {alignMonthStart(days, daysNames)}
         {days.map((day) => (
           <li key={day.number} className="flex flex-col my-2">
             <div className="self-center">{day.number}</div>
