@@ -13,17 +13,14 @@ export default function Calendar() {
   }, []);
 
   return (
-    <div>
-      <h2>Calendar for {new Date().getFullYear()}</h2>
-      <div className="calendar-grid">
+      <div>
         {days.map((day) => (
-          <div key={day.number} className="calendar-day">
+          <div key={day.number}>
             <span>{day.name}</span>
             <span>{day.number}</span>
           </div>
         ))}
       </div>
-    </div>
   );
 }
 
