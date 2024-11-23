@@ -13,7 +13,7 @@ export default function Calendar() {
   }, []);
 
   return (
-      <div>
+      <div className="h-screen">
         {days.map((day) => (
           <div key={day.number}>
             <span>{day.name}</span>
