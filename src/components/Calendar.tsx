@@ -12,7 +12,6 @@ export default function Calendar() {
   const [daysNames, setDaysNames] = useState<string[]>([]);
 
   useEffect(() => {
-    // Fetch the days in the current month when the component mounts
     const daysInMonth = getDaysInCurrentMonth();
     setDays(daysInMonth);
     const weekDaysNames = getDaysOfTheWeekNames(true);
