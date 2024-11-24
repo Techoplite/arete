@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <link rel="manifest" href="/manifest.json" />
+      <link rel="manifest" href="./manifest.json" />
       <head>
         {/* <!-- Ensure the app runs in full screen and without browser UI on mobile devices --> */}
         <meta
