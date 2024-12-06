@@ -1,32 +1,38 @@
 import getCurrentMonth from "@/utils/getCurrentMonth";
 import getCurrentYear from "@/utils/getCurrentYear";
-// import { MouseEventHandler, useState } from "react";
+import getPreviousCurrentNextMonth from "@/utils/getPreviousCurrentNextMonth";
+import { MouseEventHandler, useEffect, useState } from "react";
 
 export default function CalendarControls() {
-  //   const [next, setNext] = useState(false);
-  //   const [prev, setPrev] = useState(false);
-  //   const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
-  //     console.log("click");
+  const PREV = "PREV";
+  const NEXT = "NEXT";
 
-  //     if ((e.target as HTMLButtonElement)?.id === "next") {
-  //       setNext(true);
-  //       setPrev(false);
-  //     }
-  //     if ((e.target as HTMLButtonElement)?.id === "prev") {
-  //       setPrev(true);
-  //       setNext(false);
-  //     }
-  //   };
+  const currentMonth = getCurrentMonth();
+  const currentYear = getCurrentYear();
 
-  //   const hidden = "opacity-0 w-0";
-  //   const visible = "w-full";
+  const date = `${currentMonth} ${currentYear}`;
+
+  const [months, setMonths] = useState<string[]>(
+    getPreviousCurrentNextMonth(date)
+  );
+
+  const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
+    if ((event.target as HTMLButtonElement).id === PREV)
+      setMonths(getPreviousCurrentNextMonth(months[0]));
+    if ((event.target as HTMLButtonElement).id === NEXT)
+      setMonths(getPreviousCurrentNextMonth(months[2]));
+  };
+
+  useEffect(() => {
+    console.log("months", months);
+  });
 
   return (
     <div className="flex flex-row justify-center align-center">
       <button
-        id="prev"
+        id={PREV}
         className="px-4 py-2 bg-dark cursor-pointer"
-        // onClick={handleClick}
+        onClick={handleClick}
       >
         <svg
           className="pointer-events-none"
@@ -42,35 +48,13 @@ export default function CalendarControls() {
           />
         </svg>
       </button>
-      <div className="text-2xl self-center text-center w-full">
-        {getCurrentMonth()} {getCurrentYear()}
-      </div>
-      {/* <div
-        className={`text-2xl self-center text-center transition-all ${
-          prev ? visible : hidden
-        }`}
-      >
-        prev 2024
-      </div>
-      <div
-        className={`text-2xl self-center text-center transition-all ${
-          prev || next ? "translate-x-full opacity-0 w-0" : "w-full"
-        }`}
-      >
-        {getCurrentMonth()} {getCurrentYear()}
-      </div>
-      <div
-        className={`text-2xl self-center text-center transition-all ${
-          next ? visible : hidden
-        }`}
-      >
-        next 2024
-      </div> */}
+
+      <div></div>
 
       <button
-        id="next"
+        id={NEXT}
         className="px-4 py-2 bg-dark cursor-pointer"
-        // onClick={handleClick}
+        onClick={handleClick}
       >
         <svg
           className="pointer-events-none"
