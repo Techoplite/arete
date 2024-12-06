@@ -49,7 +49,7 @@ export default function CalendarControls() {
         </svg>
       </button>
 
-      <div></div>
+      <div className='w-full text-2xl text-center'>{months[1]}</div>
 
       <button
         id={NEXT}
