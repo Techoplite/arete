@@ -1,7 +1,7 @@
 import getCurrentMonth from "@/utils/getCurrentMonth";
 import getCurrentYear from "@/utils/getCurrentYear";
 import getPreviousCurrentNextMonth from "@/utils/getPreviousCurrentNextMonth";
-import { MouseEventHandler, useEffect, useState } from "react";
+import { MouseEventHandler, useState } from "react";
 
 export default function CalendarControls() {
   const PREV = "PREV";
@@ -22,10 +22,6 @@ export default function CalendarControls() {
     if ((event.target as HTMLButtonElement).id === NEXT)
       setMonths(getPreviousCurrentNextMonth(months[2]));
   };
-
-  useEffect(() => {
-    console.log("months", months);
-  });
 
   return (
     <div className="flex flex-row justify-center align-center">
@@ -49,7 +45,7 @@ export default function CalendarControls() {
         </svg>
       </button>
 
-      <div className='w-full text-2xl text-center'>{months[1]}</div>
+      <div className="w-full text-2xl text-center">{months[1]}</div>
 
       <button
         id={NEXT}
