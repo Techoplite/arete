@@ -1,4 +1,4 @@
-export default function CalendarDaysNames({
+export default function WeekDaysNames({
   daysNames,
 }: {
   daysNames: string[];

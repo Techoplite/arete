@@ -4,7 +4,7 @@ import { MouseEventHandler, useEffect, useState } from "react";
 import getDaysInCurrentMonth from "@/utils/getDaysInCurrentMonth";
 import getDaysOfTheWeekNames from "@/utils/getDaysOfTheWeekNames";
 import { DayInMonth } from "@/app/interfaces/DayInMonth";
-import CalendarDaysNames from "./CalendarDaysNames";
+import WeekDaysNames from "./WeekDaysNames";
 import CalendarDays from "./CalendarDays";
 import { PREV, NEXT } from "@/app/constants";
 import getCurrentMonth from "@/utils/getCurrentMonth";
@@ -48,7 +48,7 @@ export default function Calendar() {
         <div className="w-full text-2xl text-center">{middlePosition}</div>
         <ButtonChevron position={NEXT} handleClick={handleClick} />
       </div>
-      <CalendarDaysNames daysNames={daysNames} />
+      <WeekDaysNames daysNames={daysNames} />
       <CalendarDays daysNames={daysNames} days={days} />
     </>
   );
