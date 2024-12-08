@@ -22,7 +22,7 @@ export default function Calendar() {
   );
   const [days, setDays] = useState<DayInMonth[]>([]);
   const [daysNames, setDaysNames] = useState<string[]>([]);
-  
+
   const middlePosition = months[1];
   const leftPosition = months[0];
   const rightPosition = months[2];
@@ -35,11 +35,11 @@ export default function Calendar() {
   };
 
   useEffect(() => {
-    const daysInMonth = getDaysInCurrentMonth();
+    const daysInMonth = getDaysInCurrentMonth(middlePosition);
     setDays(daysInMonth);
     const weekDaysNames = getDaysOfTheWeekNames(true);
     setDaysNames(weekDaysNames);
-  }, []);
+  }, [middlePosition]);
 
   return (
     <>
