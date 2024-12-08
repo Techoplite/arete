@@ -5,12 +5,12 @@ import getDaysInCurrentMonth from "@/utils/getDaysInCurrentMonth";
 import getDaysOfTheWeekNames from "@/utils/getDaysOfTheWeekNames";
 import { DayInMonth } from "@/app/interfaces/DayInMonth";
 import WeekDaysNames from "./WeekDaysNames";
-import CalendarDays from "./CalendarDays";
 import { PREV, NEXT } from "@/app/constants";
 import getCurrentMonth from "@/utils/getCurrentMonth";
 import getCurrentYear from "@/utils/getCurrentYear";
 import getPreviousCurrentNextMonth from "@/utils/getPreviousCurrentNextMonth";
 import ButtonChevron from "./ButtonChevron";
+import CalendarDays from "./CalendarDays";
 
 export default function Calendar() {
   const currentMonth = getCurrentMonth();
@@ -45,11 +45,18 @@ export default function Calendar() {
     <>
       <div className="flex flex-row justify-center align-center">
         <ButtonChevron position={PREV} handleClick={handleClick} />
-        <div className="w-full text-2xl text-center self-center">{middlePosition}</div>
+        <div className="w-full text-2xl text-center self-center">
+          {middlePosition}
+        </div>
         <ButtonChevron position={NEXT} handleClick={handleClick} />
       </div>
       <WeekDaysNames daysNames={daysNames} />
-      <CalendarDays daysNames={daysNames} days={days} />
+      <CalendarDays
+        daysNames={daysNames}
+        days={days}
+        month={(new Date().getMonth() + 1).toString()}
+        year={currentYear.toString()}
+      />
     </>
   );
 }
