@@ -11,6 +11,7 @@ import getCurrentYear from "@/utils/getCurrentYear";
 import getPreviousCurrentNextMonth from "@/utils/getPreviousCurrentNextMonth";
 import ButtonChevron from "./ButtonChevron";
 import CalendarDays from "./CalendarDays";
+import getMonthNumberByFullName from "@/utils/getMonthNumberByFullName";
 
 export default function Calendar() {
   const currentMonth = getCurrentMonth();
@@ -54,8 +55,10 @@ export default function Calendar() {
       <CalendarDays
         daysNames={daysNames}
         days={days}
-        month={(new Date().getMonth() + 1).toString()}
-        year={currentYear.toString()}
+        month={getMonthNumberByFullName(
+          middlePosition.split(" ")[0]
+        ).toString()}
+        year={middlePosition.split(" ")[1]}
       />
     </>
   );

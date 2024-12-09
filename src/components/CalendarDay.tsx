@@ -1,5 +1,6 @@
 import { DayInMonth } from "@/app/interfaces/DayInMonth";
 import getToday from "../../getToday";
+import { useEffect, useState } from "react";
 
 export default function CalendarDay({
   day,
@@ -10,13 +11,17 @@ export default function CalendarDay({
   month: string;
   year: string;
 }) {
-  const today = getToday();
-  
-  const isToday =
-    day.number.toString() === today.dayNumber &&
-    month === today.monthNumber &&
-    year === today.year;
-    
+  const [isToday, setIsToday] = useState(false);
+
+  useEffect(() => {
+    const today = getToday();
+    setIsToday(
+      day.number.toString() === today.dayNumber &&
+        month === today.monthNumber &&
+        year === today.year
+    );
+  }, [day.number, month, year]);
+
   return (
     <li
       key={day.number}
