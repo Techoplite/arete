@@ -1,0 +1,15 @@
+body {
+  background-color: rgb(32, 32, 32);
+  padding: 2rem;
+}
+
+label {
+  color: white;
+  margin: 1rem;
+  display: block;
+}
+
+input {
+  margin-bottom: 1rem;
+  display: block;
+}
