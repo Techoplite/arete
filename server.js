@@ -13,11 +13,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // PostgreSQL connection
 const pool = new Pool({
-  user: "your_username",
+  user: "postgres",
   host: "localhost",
   database: "arete_db",
-  password: "your_password",
-  port: 5432,
+  password: "@P28mi04or89",
 });
 
 // Routes
