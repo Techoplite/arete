@@ -12,6 +12,7 @@ import getPreviousCurrentNextMonth from "@/utils/getPreviousCurrentNextMonth";
 import ButtonChevron from "./ButtonChevron";
 import CalendarDays from "./CalendarDays";
 import getMonthNumberByFullName from "@/utils/getMonthNumberByFullName";
+import WellnessButton from "./WellnessButton";
 
 export default function Calendar() {
   const currentMonth = getCurrentMonth();
@@ -60,6 +61,7 @@ export default function Calendar() {
         ).toString()}
         year={middlePosition.split(" ")[1]}
       />
+      <WellnessButton />
     </>
   );
 }
