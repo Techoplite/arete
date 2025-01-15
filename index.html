@@ -7,61 +7,17 @@
     <title>Arete</title>
   </head>
   <body>
-    <input type="date" />
-    <form id="ingredient-form">
-      <label for="ingredient-name">Ingredient name</label>
-      <input type="text" id="ingredient-name" name="ingredient-name" />
-      <label for="ingredient-calories">Ingredient calories</label>
-      <input type="text" id="ingredient-calories" name="ingredient-calories" />
-      <button type="button" onclick="addIngredient()">Submit</button>
-    </form>
-    <form id="exercise-form">
-      <label for="exercise-name">Exercise name</label>
-      <input type="text" id="exercise-name" name="exercise-name" />
-      <label for="exercise-calories-burned">Exercise calories burned</label>
-      <input
-        type="text"
-        id="exercise-calories-burned"
-        name="exercise-calories-burned"
-      />
-      <button type="button" onclick="addExercise()">Submit</button>
-    </form>
-    <script>
-      async function addIngredient() {
-        const name = document.getElementById("ingredient-name").value;
-        const calories = document.getElementById("ingredient-calories").value;
-
-        const response = await fetch("http://localhost:3000/add-ingredient", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name, calories }),
-        });
-
-        if (response.ok) {
-          alert("Ingredient added!");
-        } else {
-          alert("Error adding ingredient");
-        }
-      }
-
-      async function addExercise() {
-        const name = document.getElementById("exercise-name").value;
-        const caloriesBurned = document.getElementById(
-          "exercise-calories-burned"
-        ).value;
-
-        const response = await fetch("http://localhost:3000/add-exercise", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name, caloriesBurned }),
-        });
-
-        if (response.ok) {
-          alert("Exercise added!");
-        } else {
-          alert("Error adding exercise");
-        }
-      }
-    </script>
+    <label for="calories-in">Calories in</label>
+    <input type="text" id="calories-in" name="calories-in" />
+    <button type="button" onclick="handleCaloriesInput('in')">
+      Add Calories
+    </button>
+    <label for="calories-in">Calories out</label>
+    <input type="text" id="calories-out" name="calories-out" />
+    <button type="button" onclick="handleCaloriesInput('out')">
+      Subtract Calories
+    </button>
+    <h2>Today's calories: <span id="total-calories">0</span></h2>
+    <script src="main.js"></script>
   </body>
 </html>

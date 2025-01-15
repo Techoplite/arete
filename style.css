@@ -1,15 +1,26 @@
 body {
   background-color: rgb(32, 32, 32);
   padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: sans-serif;
 }
 
 label {
   color: white;
-  margin: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 3rem;
   display: block;
 }
 
 input {
   margin-bottom: 1rem;
   display: block;
+}
+
+h2 {
+  color: white;
+  margin-top: 3rem;
 }
