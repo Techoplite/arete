@@ -54,7 +54,7 @@ app.post("/add-calories-entry", async (req, res) => {
   const client = await pool.connect();
 
   try {
-    // await client.query("BEGIN"); // Start transaction
+    await client.query("BEGIN"); // Start transaction
 
     // Insert the new row and return the created_at timestamp
     const insertResult = await client.query(
@@ -75,12 +75,7 @@ app.post("/add-calories-entry", async (req, res) => {
       [insertedCreatedAt] // Ensure the newly inserted row is included
     );
 
-    // await client.query("COMMIT"); // Commit the transaction
-
-    console.log(
-      "result.rows[0].total_calories :>> ",
-      result.rows[0].total_calories
-    );
+    await client.query("COMMIT"); // Commit the transaction
 
     return res
       .status(200)
@@ -90,6 +85,27 @@ app.post("/add-calories-entry", async (req, res) => {
     throw error;
   } finally {
     client.release(); // Release the client back to the pool
+  }
+});
+
+// Route to get total calories
+app.get("/get-total-calories", async (req, res) => {
+  const client = await pool.connect();
+
+  try {
+    const result = await client.query(
+      `
+        SELECT SUM(calories) AS total_calories
+        FROM calories_log
+        WHERE DATE(created_at) = CURRENT_DATE
+      `
+    );
+
+    return res
+      .status(200)
+      .json({ totalCalories: result.rows[0].total_calories });
+  } finally {
+    client.release();
   }
 });
 

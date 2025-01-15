@@ -1,5 +1,6 @@
 async function handleCaloriesInput(adverb) {
-  const calories = document.getElementById(`calories-${adverb}`)?.value;
+  const input = document.getElementById(`calories-${adverb}`);
+  const calories = input?.value;
 
   const response = await fetch("http://localhost:3000/add-calories-entry", {
     method: "POST",
@@ -7,15 +8,37 @@ async function handleCaloriesInput(adverb) {
     body: JSON.stringify({ calories, operator: adverb === "in" ? "+" : "-" }),
   });
 
-  console.log("response :>> ", response);
-
   if (response.ok) {
-    console.log("response :>> ", response);
     const data = await response.json();
-
-    console.log("data :>> ", data);
 
     // Update the DOM with the total calories
     document.getElementById("total-calories").textContent = data.totalCalories;
+    input.value = "";
   }
 }
+
+async function getTotalCalories() {
+  const response = await fetch("http://localhost:3000/get-total-calories");
+
+  if (response.ok) {
+    const data = await response.json();
+
+    document.getElementById("total-calories").textContent = data.totalCalories;
+  }
+}
+
+getTotalCalories();
+
+// Disable submit button if input is empty on page load
+document.querySelectorAll("input[type='text']").forEach((input) => {
+  const submitButton = input.nextElementSibling;
+  submitButton.disabled = !input.value;
+});
+
+// Enable submit button if input is not empty
+document.querySelectorAll("input[type='text']").forEach((input) => {
+  input.addEventListener("input", () => {
+    const submitButton = input.nextElementSibling;
+    submitButton.disabled = !input.value;
+  });
+});
