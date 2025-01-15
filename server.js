@@ -27,7 +27,6 @@ const createTableQuery = `
   CREATE TABLE IF NOT EXISTS calories_log (
     id SERIAL PRIMARY KEY,
     calories INTEGER NOT NULL,
-    type VARCHAR(50) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
   );
 `;
@@ -57,10 +56,10 @@ app.post("/add-calories-entry", async (req, res) => {
 
     // Insert the new row and return the created_at timestamp
     const insertResult = await client.query(
-      `INSERT INTO calories_log (calories, type)
-     VALUES ($1, $2)
+      `INSERT INTO calories_log (calories)
+     VALUES ($1)
      RETURNING calories, created_at`,
-      [operator + parseInt(calories, 10), "in"]
+      [operator + parseInt(calories, 10)]
     );
 
     const insertedCreatedAt = insertResult.rows[0].created_at;

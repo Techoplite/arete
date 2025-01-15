@@ -1,6 +1,9 @@
 async function handleCaloriesInput(adverb) {
   const input = document.getElementById(`calories-${adverb}`);
+  console.log("input :>> ", input);
   const calories = input?.value;
+
+  console.log("calories :>> ", calories);
 
   const response = await fetch("http://localhost:3000/add-calories-entry", {
     method: "POST",
