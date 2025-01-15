@@ -2,7 +2,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const { Pool } = require("pg");
 const cors = require("cors"); // Import CORS middleware
-const { log } = require("console");
 
 // Create the Express app
 const app = express();
