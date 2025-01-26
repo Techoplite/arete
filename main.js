@@ -7,7 +7,7 @@ const supabaseKey = SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const getCaloriesValue = async () => {
-  const { data, error } = await supabase.from("calories_log").select();
+  const { data } = await supabase.from("calories_log").select();
 
   const totalCaloriesSpan = document.getElementById("total-calories");
   const calories = data?.map((c) => c.calories).reduce((a, b) => a + b, 0);
@@ -22,7 +22,7 @@ let latestId;
 
 const handleCaloriesInput = async (adverb) => {
   const caloriesInput = document.getElementById(`calories-${adverb}`).value;
-  const { data, error } = await supabase.from("calories_log").insert({
+  supabase.from("calories_log").insert({
     id: latestId + 1,
     calories: adverb === "in" ? caloriesInput : "-" + caloriesInput,
   });
