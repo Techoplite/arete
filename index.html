@@ -5,16 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Arete</title>
-    <script type="module">
-      import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
-
-      const supabaseUrl = "https://gnoijvmiulhfdgptzwit.supabase.co";
-      const supabaseKey =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdub2lqdm1pdWxoZmRncHR6d2l0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzY5NjM1ODUsImV4cCI6MjA1MjUzOTU4NX0.Pysq135y24yWLzeJ3r_Zp4sHf44xi4GYpR6AWnedKec";
-      const supabase = createClient(supabaseUrl, supabaseKey);
-      const { data, error } = await supabase.from("calories_log").select();
-      console.log("data :>> ", data);
-    </script>
   </head>
   <body>
     <label for="calories-in">Calories in</label>

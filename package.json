@@ -1,9 +1,6 @@
 {
   "dependencies": {
-    "@supabase/supabase-js": "^2.48.1",
-    "cors": "^2.8.5",
-    "express": "^4.21.2",
-    "pg": "^8.13.1"
+    "@supabase/supabase-js": "^2.48.1"
   },
   "type": "module"
 }
