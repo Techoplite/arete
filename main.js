@@ -22,10 +22,10 @@ let latestId;
 
 const handleCaloriesInput = async (adverb) => {
   const caloriesInput = document.getElementById(`calories-${adverb}`).value;
-  supabase.from("calories_log").insert({
-    id: latestId + 1,
+  await supabase.from("calories_log").insert({
     calories: adverb === "in" ? caloriesInput : "-" + caloriesInput,
   });
+
   getCaloriesValue();
 
   document.getElementById(`calories-${adverb}`).value = "";
