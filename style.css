@@ -24,3 +24,14 @@ h2 {
   color: white;
   margin-top: 3rem;
 }
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  color: white;
+  margin-bottom: 1rem;
+  list-style: none;
+}
