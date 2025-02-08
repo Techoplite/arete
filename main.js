@@ -8,7 +8,6 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 function groupCaloriesByDay(entries) {
   return entries.reduce((acc, entry) => {
-    console.log("acc :>> ", acc);
     // Format date as D/M/YYYY
     let date = new Date(entry.created_at).toLocaleDateString("en-GB");
 
