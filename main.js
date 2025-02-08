@@ -32,6 +32,8 @@ const getCaloriesValue = async () => {
 
   const previousDaysUlEl = document.getElementById("previous-days");
 
+  previousDaysUlEl.replaceChildren();
+
   Object.keys(caloriesGroupedByDay)
     .slice(0, -1)
     .reverse()
