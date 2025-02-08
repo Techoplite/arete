@@ -8,6 +8,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 function groupCaloriesByDay(entries) {
   return entries.reduce((acc, entry) => {
+    console.log("acc :>> ", acc);
     // Format date as D/M/YYYY
     let date = new Date(entry.created_at).toLocaleDateString("en-GB");
 
@@ -24,7 +25,7 @@ const getCaloriesValue = async () => {
   const caloriesGroupedByDay = groupCaloriesByDay(data);
 
   const today = new Date().toLocaleDateString("en-GB");
-  const caloriesToday = groupCaloriesByDay(data)[today] || 0;
+  const caloriesToday = caloriesGroupedByDay[today] || 0;
 
   const totalCaloriesSpanEl = document.getElementById("total-calories");
 
@@ -52,7 +53,7 @@ const handleCaloriesInput = async (adverb) => {
     calories: adverb === "in" ? caloriesInput : "-" + caloriesInput,
   });
 
-  getCaloriesValue();
+  // getCaloriesValue();
 
   document.getElementById(`calories-${adverb}`).value = "";
 };
