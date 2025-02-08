@@ -53,7 +53,7 @@ const handleCaloriesInput = async (adverb) => {
     calories: adverb === "in" ? caloriesInput : "-" + caloriesInput,
   });
 
-  // getCaloriesValue();
+  getCaloriesValue();
 
   document.getElementById(`calories-${adverb}`).value = "";
 };
