@@ -35,7 +35,7 @@ const getCaloriesValue = async () => {
   previousDaysUlEl.replaceChildren();
 
   Object.keys(caloriesGroupedByDay)
-    .slice(0, -1)
+    .filter((day) => day !== today)
     .reverse()
     .map((day) => {
       const li = document.createElement("li");
