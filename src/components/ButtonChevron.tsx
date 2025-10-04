@@ -9,7 +9,7 @@ export default function ButtonChevron(props: {
   return (
     <button
       id={position}
-      className="px-4 py-2 bg-dark cursor-pointer"
+      className="p-4 px-6 cursor-pointer x-6 bg-gray"
       onClick={handleClick}
     >
       {position === PREV && (
