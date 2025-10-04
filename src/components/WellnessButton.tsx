@@ -11,7 +11,7 @@ export default function WellnessButton({
   return (
     <Link
       href={label.toLowerCase()}
-      className={`${styles[color]} w-full h-[-webkit-fill-available] flex items-center justify-center text-lg py-7`}
+      className={`${styles[color]} w-full h-[-webkit-fill-available] flex items-center justify-center text-lg py-2`}
     >
       {label}
     </Link>

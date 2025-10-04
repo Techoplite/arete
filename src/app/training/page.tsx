@@ -16,7 +16,7 @@ export default function page() {
   ];
 
   return (
-    <>
+    <div className="bg-gradient-to-b from-[#1a1a1a] to-[#000000] px-4 py-4  gap-3 flex flex-col">
       <div className="flex flex-row justify-between items-center">
         <BackButton />
         <SearchBar />
@@ -29,6 +29,6 @@ export default function page() {
           </p>
         </div>
       ))}
-    </>
+    </div>
   );
 }

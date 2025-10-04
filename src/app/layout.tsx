@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-[-webkit-fill-available]">
       <link rel="manifest" href="./manifest.json" />
       <head>
         {/* <!-- Ensure the app runs in full screen and without browser UI on mobile devices --> */}
@@ -41,11 +41,9 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-[-webkit-fill-available] flex flex-col`}
       >
-        <div className="h-full min-h-screen px-4 py-4 flex flex-col gap-[20px]">
-          {children}
-        </div>
+        <div className="h-[-webkit-fill-available]">{children}</div>
       </body>
     </html>
   );

@@ -14,6 +14,7 @@ export default {
         dark: "#232222",
         gray: "#2a2a2a;",
         "light-gray": "#5D5D5D",
+        test: "linear-gradient(#1a1a1a, #000000)",
       },
       fontSize: {
         large: "32px",
