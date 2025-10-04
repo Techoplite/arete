@@ -46,7 +46,7 @@ export default function Calendar() {
     <>
       <div className="flex flex-row justify-center align-center">
         <ButtonChevron position={PREV} handleClick={handleClick} />
-        <div className="w-full text-2xl text-center self-center">
+        <div className="w-full text-l text-center self-center">
           {middlePosition}
         </div>
         <ButtonChevron position={NEXT} handleClick={handleClick} />
