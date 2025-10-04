@@ -1,5 +1,5 @@
-import { DayInMonth } from "@/app/interfaces/DayInMonth";
-import getToday from "../../getToday";
+import { DayInMonth } from "@/interfaces/DayInMonth";
+import getToday from "../utils/getToday";
 import { useEffect, useState } from "react";
 
 export default function CalendarDay({

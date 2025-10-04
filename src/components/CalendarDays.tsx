@@ -1,6 +1,6 @@
 import { alignMonthStart } from "@/utils/alignMonthStart";
 import CalendarDay from "./CalendarDay";
-import { DayInMonth } from "@/app/interfaces/DayInMonth";
+import { DayInMonth } from "@/interfaces/DayInMonth";
 
 export default function CalendarDays({
   days,
@@ -10,7 +10,7 @@ export default function CalendarDays({
 }: {
   days: DayInMonth[];
   daysNames: string[];
-  month: string
+  month: string;
   year: string;
 }) {
   return (

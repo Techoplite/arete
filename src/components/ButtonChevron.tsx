@@ -1,4 +1,4 @@
-import { PREV, NEXT } from "@/app/constants";
+import { PREV, NEXT } from "@/constants";
 import React, { MouseEventHandler } from "react";
 
 export default function ButtonChevron(props: {

@@ -12,6 +12,11 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         dark: "#232222",
+        gray: "#2a2a2a;",
+        "light-gray": "5D5D5D",
+      },
+      fontSize: {
+        large: "32px",
       },
     },
   },

@@ -1,4 +1,4 @@
-import { DayInMonth } from "@/app/interfaces/DayInMonth";
+import { DayInMonth } from "@/interfaces/DayInMonth";
 
 export const alignMonthStart = (days: DayInMonth[], daysNames: string[]) => {
   if (!days.length || !daysNames.length) return []; // Return empty if data is not ready

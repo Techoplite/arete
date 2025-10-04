@@ -3,9 +3,9 @@
 import { MouseEventHandler, useEffect, useState } from "react";
 import getDaysInCurrentMonth from "@/utils/getDaysInCurrentMonth";
 import getDaysOfTheWeekNames from "@/utils/getDaysOfTheWeekNames";
-import { DayInMonth } from "@/app/interfaces/DayInMonth";
+import { DayInMonth } from "@/interfaces/DayInMonth";
 import WeekDaysNames from "./WeekDaysNames";
-import { PREV, NEXT } from "@/app/constants";
+import { PREV, NEXT } from "@/constants";
 import getCurrentMonth from "@/utils/getCurrentMonth";
 import getCurrentYear from "@/utils/getCurrentYear";
 import getPreviousCurrentNextMonth from "@/utils/getPreviousCurrentNextMonth";

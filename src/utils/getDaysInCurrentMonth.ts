@@ -1,6 +1,6 @@
-import { DayInMonth } from "@/app/interfaces/DayInMonth";
+import { DayInMonth } from "@/interfaces/DayInMonth";
 
-export default function getDaysInCurrentMonth(date: string):DayInMonth[] {
+export default function getDaysInCurrentMonth(date: string): DayInMonth[] {
   const today = new Date(date);
   const currentYear = today.getFullYear();
   const currentMonth = today.getMonth(); // 0-based index (0 = January, 11 = December)
@@ -18,7 +18,7 @@ export default function getDaysInCurrentMonth(date: string):DayInMonth[] {
     date <= lastDayOfMonth;
     date.setDate(date.getDate() + 1)
   ) {
-    const dayName = date.toLocaleString('en-US', { weekday: 'short' }); // Get the day name (Mon, Tue, etc.)
+    const dayName = date.toLocaleString("en-US", { weekday: "short" }); // Get the day name (Mon, Tue, etc.)
     const dayNumber = date.getDate(); // Get the numeric day (1, 2, 3, ..., 31)
 
     // Push the day object to the array
@@ -31,4 +31,3 @@ export default function getDaysInCurrentMonth(date: string):DayInMonth[] {
 
   return daysInMonth;
 }
-
