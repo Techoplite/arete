@@ -43,7 +43,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="h-full px-4 py-16 flex flex-col gap-[20px]">
+        <div className="h-full px-4 py-4 flex flex-col gap-[20px]">
           {children}
         </div>
       </body>
