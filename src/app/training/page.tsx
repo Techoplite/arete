@@ -22,8 +22,8 @@ export default function page() {
         <SearchBar />
       </div>
       {data.map((exercise) => (
-        <div key={exercise.name} className="bg-gray p-4 w-full">
-          <h2 className="text-lg">{exercise.name}</h2>
+        <div key={exercise.name} className="bg-gray p-2 w-full">
+          <h2 className="text">{exercise.name}</h2>
           <p className="text-light-gray">
             {exercise.caloriesPerUnit} calories burned
           </p>

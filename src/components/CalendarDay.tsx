@@ -27,9 +27,9 @@ export default function CalendarDay({
       key={day.number}
       className={`flex flex-col py-2 ${isToday && "bg-dark"}`}
     >
-      <div className="self-center">{day.number}</div>
-      <div className="rounded-full h-2 w-2 bg-red-500 self-center my-2.5" />
-      <div className="rounded-full h-2 w-2 bg-green-500 self-center" />
+      <div className="self-center text-sm">{day.number}</div>
+      <div className="rounded-full h-1 w-1 bg-red-500 self-center my-2.5" />
+      <div className="rounded-full h-1 w-1 bg-green-500 self-center" />
     </li>
   );
 }

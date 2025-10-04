@@ -3,10 +3,10 @@ export default function SearchBar() {
     <div className="relative">
       <input
         type="text"
-        className="rounded-full bg-gray placeholder-light-gray focus-visible:border-blue-500 py-4 px-8"
+        className="rounded-full bg-gray placeholder-light-gray focus-visible:border-blue-500 py-2 px-4"
         placeholder="Search Exercise..."
       />
-      <button className="absolute top-0 bottom-0 right-5 m-auto">
+      <button className="absolute top-0 bottom-0 right-2 m-auto">
         <svg
           width="30"
           height="30"

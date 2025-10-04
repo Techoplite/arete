@@ -9,14 +9,14 @@ export default function ButtonChevron(props: {
   return (
     <button
       id={position}
-      className="p-4 px-6 cursor-pointer x-6 bg-gray"
+      className="p-4 cursor-pointer bg-gray"
       onClick={handleClick}
     >
       {position === PREV && (
         <svg
           className="pointer-events-none"
-          width="15"
-          height="24"
+          width="7"
+          height="12"
           viewBox="0 0 15 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -30,8 +30,8 @@ export default function ButtonChevron(props: {
       {position === NEXT && (
         <svg
           className="pointer-events-none"
-          width="15"
-          height="24"
+          width="7"
+          height="12"
           viewBox="0 0 15 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
