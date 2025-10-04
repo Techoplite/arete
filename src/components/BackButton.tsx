@@ -4,7 +4,7 @@ export default function BackButton() {
   return (
     <Link
       href="/"
-      className="text-foreground px-6 bg-gray h-full flex items-center justify-center"
+      className="text-foreground px-6 bg-gray h-[-webkit-fill-available] flex items-center justify-center"
     >
       {" "}
       <svg
