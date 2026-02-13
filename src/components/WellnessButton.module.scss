@@ -1,0 +1,17 @@
+.red {
+  border: 3px solid;
+  border-image: linear-gradient(45deg, #bc1717, #fe7e7e) 1;
+  background-image: linear-gradient(rgb(0 0 0 / 70%), rgb(0 0 0 / 90%)),
+    url(/calisthenics-park.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.green {
+  border: 3px solid;
+  border-image: linear-gradient(45deg, #04560b, #65bc7e) 1;
+  background-image: linear-gradient(rgb(0 0 0 / 70%), rgb(0 0 0 / 90%)),
+    url("/chicken-and-broccoli.jpeg");
+  background-position: center;
+  background-size: cover;
+}
